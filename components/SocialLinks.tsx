@@ -10,15 +10,15 @@ export default function SocialLinks({ inputs, setInputs }: ComponentProps) {
 
   return (
     <div className="grid grid-cols-3 gap-4 py-6">
-      <div className="col-span-1">
+      <div className="col-span-full lg:col-span-1">
         <div className="sticky top-8">
           <h1 className="text-black text-lg">Social Links</h1>
           <p className="text-sm text-gray-500">Add some social media links</p>
         </div>
       </div>
-      <div className="col-span-2 flex flex-col space-y-4 bg-white p-6 ring-1 ring-slate-900/5 rounded-md">
+      <div className="col-span-full lg:col-span-2 flex flex-col space-y-4 bg-white p-6 ring-1 ring-slate-900/5 rounded-md">
         <div className="grid grid-cols-2 gap-x-8 gap-y-6">
-          <div>
+          <div className="max-lg:col-span-full">
             <h1 className="mb-2">Facebook</h1>
             <div className="flex h-10">
               <span className="bg-gray-100 inline-flex items-center p-4 border border-gray-300 -mr-1 rounded-s-md">
@@ -47,7 +47,7 @@ export default function SocialLinks({ inputs, setInputs }: ComponentProps) {
               />
             </div>
           </div>
-          <div>
+          <div className="max-lg:col-span-full">
             <h1 className="mb-2">Twitter</h1>
             <div className="flex h-10">
               <span className="bg-gray-100 inline-flex items-center p-4 border border-gray-300 -mr-1 rounded-s-md">
@@ -76,7 +76,7 @@ export default function SocialLinks({ inputs, setInputs }: ComponentProps) {
               />
             </div>
           </div>
-          <div>
+          <div className="max-lg:col-span-full">
             <h1 className="mb-2">Instagram</h1>
             <div className="flex h-10">
               <span className="bg-gray-100 inline-flex items-center p-4 border border-gray-300 -mr-1 rounded-s-md">
@@ -105,7 +105,7 @@ export default function SocialLinks({ inputs, setInputs }: ComponentProps) {
               />
             </div>
           </div>
-          <div>
+          <div className="max-lg:col-span-full">
             <h1 className="mb-2">Github</h1>
             <div className="flex h-10">
               <span className="bg-gray-100 inline-flex items-center p-4 border border-gray-300 -mr-1 rounded-s-md">
@@ -134,7 +134,7 @@ export default function SocialLinks({ inputs, setInputs }: ComponentProps) {
               />
             </div>
           </div>
-          <div>
+          <div className="max-lg:col-span-full">
             <h1 className="mb-2">Telegram</h1>
             <div className="flex h-10">
               <span className="bg-gray-100 inline-flex items-center p-4 border border-gray-300 -mr-1 rounded-s-md">
@@ -163,7 +163,7 @@ export default function SocialLinks({ inputs, setInputs }: ComponentProps) {
               />
             </div>
           </div>
-          <div>
+          <div className="max-lg:col-span-full">
             <h1 className="mb-2">LinkedIn</h1>
             <div className="flex h-10">
               <span className="bg-gray-100 inline-flex items-center p-4 border border-gray-300 -mr-1 rounded-s-md">
@@ -192,7 +192,7 @@ export default function SocialLinks({ inputs, setInputs }: ComponentProps) {
               />
             </div>
           </div>
-          <div>
+          <div className="max-lg:col-span-full">
             <h1 className="mb-2">Gmail</h1>
             <div className="flex h-10">
               <span className="bg-gray-100 inline-flex items-center p-4 border border-gray-300 -mr-1 rounded-s-md">
@@ -222,7 +222,7 @@ export default function SocialLinks({ inputs, setInputs }: ComponentProps) {
               />
             </div>
           </div>
-          <div>
+          <div className="max-lg:col-span-full">
             <h1 className="mb-2">Youtube</h1>
             <div className="flex h-10">
               <span className="bg-gray-100 inline-flex items-center p-4 border border-gray-300 -mr-1 rounded-s-md">
@@ -251,7 +251,7 @@ export default function SocialLinks({ inputs, setInputs }: ComponentProps) {
               />
             </div>
           </div>
-          <div>
+          <div className="max-lg:col-span-full">
             <h1 className="mb-2">Phone Number</h1>
             <div className="flex h-10">
               <span className="bg-gray-100 inline-flex items-center p-4 border border-gray-300 -mr-1 rounded-s-md">

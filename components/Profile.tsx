@@ -17,7 +17,7 @@ export default function Profile({ inputs, setInputs }: ComponentProps) {
 
   return (
     <div className="relative grid grid-cols-3 gap-4 pt-2 pb-6">
-      <div className="col-span-1">
+      <div className="col-span-full lg:col-span-1">
         <div className="sticky top-8">
           <h1 className="text-black text-lg">Profile</h1>
           <p className="text-sm text-gray-500">
@@ -25,7 +25,7 @@ export default function Profile({ inputs, setInputs }: ComponentProps) {
           </p>
         </div>
       </div>
-      <div className="col-span-2 flex flex-col space-y-4 bg-white p-6 ring-1 ring-slate-900/5 rounded-md">
+      <div className="col-span-full lg:col-span-2 flex flex-col space-y-4 bg-white p-6 ring-1 ring-slate-900/5 rounded-md">
         <div>
           <label htmlFor="name" className="block mb-2 text-sm">
             Name
@@ -51,7 +51,7 @@ export default function Profile({ inputs, setInputs }: ComponentProps) {
             placeholder="I am a developer"
             value={inputs.about}
             onChange={handleTextAreaChange}
-            className="border border-gray-300 w-full rounded-md placeholder:text-slate-400 placeholder:text-base"
+            className="border border-gray-300 w-full rounded-md"
           ></textarea>
         </div>
         <div>

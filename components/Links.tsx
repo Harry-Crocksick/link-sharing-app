@@ -19,7 +19,6 @@ export default function Links() {
         url: "",
       },
     ]);
-    console.log(data);
   }
 
   return (

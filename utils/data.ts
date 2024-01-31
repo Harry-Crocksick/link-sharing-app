@@ -10,12 +10,12 @@ export const prefillDemoData: InputProps = {
   email: "mail@john_snow.cc",
   github: "https://github.com/john_snow",
   telegram: "https://t.me/john_snow",
-  phoneNumber: "+918888888888",
   youtube: "https://youtube.com/@john_snow",
   linkedin: "https://linkedin.com/john_snow",
-  pinterest: "https://pinterest.com/john_snow",
+  // pinterest: "https://pinterest.com/john_snow",
+  discord: "https://discord.com/user/id",
   extra: [
-    {
+    /* {
       l: "My Website",
       i: "ph:globe-duotone",
       u: "https://example.com",
@@ -39,6 +39,6 @@ export const prefillDemoData: InputProps = {
       l: "Download my resume",
       i: "ph:file-pdf",
       u: "https://google.com",
-    },
+    }, */
   ],
 };

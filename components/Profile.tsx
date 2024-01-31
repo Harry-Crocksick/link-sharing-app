@@ -1,6 +1,10 @@
-import { ComponentProps } from "@/utils/definitions";
+"use client";
 
-export default function Profile({ inputs, setInputs }: ComponentProps) {
+import { useInputsContext } from "@/context/Context";
+
+export default function Profile() {
+  const { inputs, setInputs } = useInputsContext();
+
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setInputs({
       ...inputs,

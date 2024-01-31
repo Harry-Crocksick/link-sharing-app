@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.blue-background {
+  /* background-color: rgba(135, 207, 235, 0.159); */
+  background-color: rgba(220, 220, 220, 0.147);
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;

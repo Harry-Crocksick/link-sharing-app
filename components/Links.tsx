@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import { ExtraProps } from "@/utils/definitions";
 import Link from "./Link";
+import { ReactSortable } from "react-sortablejs";
+import { useExtraLinkContext } from "@/context/Context";
+// import { v4 as uuid } from "uuid";
 
 let nextId = 0;
 
 export default function Links() {
-  const [data, setData] = useState<ExtraProps[]>([]);
+  const { data, setData } = useExtraLinkContext();
 
   function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
     setData([
@@ -19,7 +20,7 @@ export default function Links() {
         url: "",
       },
     ]);
-    console.log("Clicked");
+    console.log(data);
   }
 
   return (
@@ -41,12 +42,18 @@ export default function Links() {
           </small>
         </div>
       </div>
-      {/* <ReactSortable list={inputs.extra} setList={setInputs}> */}
-      {data.length > 0 &&
-        data.map((link, index) => (
-          <Link key={link.id} data={data} link={link} setData={setData} />
-        ))}
-      {/* </ReactSortable> */}
+      {data.length > 0 && (
+        <ReactSortable
+          ghostClass="blue-background"
+          animation={200}
+          list={data}
+          setList={setData}
+          className="col-span-full lg:col-span-2 flex flex-col space-y-6"
+        >
+          {data.length > 0 &&
+            data.map((link) => <Link key={link.id} link={link} />)}
+        </ReactSortable>
+      )}
       <button
         className="col-span-full lg:col-start-2 py-1.5 flex items-center justify-center border border-gray-400 rounded-md mt-4"
         onClick={handleClick}

@@ -1,3 +1,8 @@
+export type ExtraLinkContextTypes = {
+  data: ExtraProps[];
+  setData: (props: ExtraProps[]) => void;
+};
+
 export type ExtraProps = {
   id: number;
   iconKey: string;
@@ -18,7 +23,7 @@ export type InputProps = {
   email: string;
   youtube: string;
   pinterest: string;
-  phoneNumber: string;
+  discord: string;
   extra: ExtraProps[];
 };
 

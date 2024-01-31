@@ -1,7 +1,8 @@
 export type ExtraProps = {
-  i: string;
-  l: string;
-  u: string;
+  id: number;
+  iconKey: string;
+  label: string;
+  url: string;
 };
 
 export type InputProps = {

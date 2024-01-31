@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { MainSidebar, PhoneMockup } from "@/components";
-import { InputProps } from "@/utils/definitions";
+import { ExtraProps, InputProps } from "@/utils/definitions";
 
 export default function Home() {
   const [inputs, setInputs] = useState<InputProps>({
@@ -26,6 +26,7 @@ export default function Home() {
     <main className="flex">
       <MainSidebar inputs={inputs} setInputs={setInputs} />
       <PhoneMockup inputs={inputs} />
+      {/* <Sortable /> */}
     </main>
   );
 }

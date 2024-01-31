@@ -22,7 +22,6 @@ export type InputProps = {
   linkedin: string;
   email: string;
   youtube: string;
-  pinterest: string;
   discord: string;
   extra: ExtraProps[];
 };

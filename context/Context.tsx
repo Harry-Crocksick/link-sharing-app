@@ -50,8 +50,7 @@ export default function ContextProvider({
     linkedin: "",
     email: "",
     youtube: "",
-    pinterest: "",
-    phoneNumber: "",
+    discord: "",
     extra: [],
   });
   const [data, setData] = useState<ExtraProps[]>([]);

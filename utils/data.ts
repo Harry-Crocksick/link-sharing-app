@@ -2,31 +2,31 @@ import { ExtraProps, InputProps } from "./definitions";
 
 export const extraDemoLinks: ExtraProps[] = [
   {
-    id: 1,
+    id: 0,
     label: "My Website",
     iconKey: "ph:globe-duotone",
     url: "https://example.com",
   },
   {
-    id: 2,
+    id: 1,
     label: "Amazon wishlist",
     iconKey: "ant-design:amazon-outlined",
     url: "https://amazon.in",
   },
   {
-    id: 3,
+    id: 2,
     label: "React JS course",
     iconKey: "grommet-icons:reactjs",
     url: "https://reactjs.org/",
   },
   {
-    id: 4,
+    id: 3,
     label: "Donate for our cause",
     iconKey: "iconoir:donate",
     url: "https://who.int",
   },
   {
-    id: 5,
+    id: 4,
     label: "Download my resume",
     iconKey: "ph:file-pdf",
     url: "https://google.com",
@@ -45,7 +45,6 @@ export const prefillDemoData: InputProps = {
   telegram: "https://t.me/elon_musk",
   youtube: "https://youtube.com/@elon_musk",
   linkedin: "https://linkedin.com/elon_musk",
-  // pinterest: "https://pinterest.com/john_snow",
   discord: "https://discord.com/user/elon_musk",
   extra: [...extraDemoLinks],
 };

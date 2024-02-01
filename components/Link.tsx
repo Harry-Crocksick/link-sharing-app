@@ -44,7 +44,12 @@ export default function Link({
         className="absolute -top-[0.5em] -right-[0.5em] rounded-full p-1 bg-gray-200 max-w-max z-50"
         onClick={handleDelete}
       >
-        <Icon icon={"radix-icons:cross-2"} width="1.35em" height="1.35em" />
+        <Icon
+          icon={"radix-icons:cross-2"}
+          width="1.35em"
+          height="1.35em"
+          onClick={handleDelete}
+        />
       </button>
       <div>
         <label htmlFor="name" className="block mb-2 text-sm">

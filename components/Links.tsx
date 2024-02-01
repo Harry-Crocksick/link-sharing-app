@@ -7,6 +7,7 @@ import { Icon } from "@iconify/react";
 import { extraDemoLinks, prefillDemoData } from "@/utils/data";
 import { encodeData } from "@/utils/transform";
 import { InputProps } from "@/utils/definitions";
+import { toast } from "react-toastify";
 
 let nextId = 0;
 
@@ -26,7 +27,10 @@ export default function Links() {
       finalizedData
     )}`;
     navigator.clipboard.writeText(url).then(() => {
-      alert("Link copied to clipboard");
+      toast.success("Link copied to clipboard", {
+        position: "top-center",
+        autoClose: 2500,
+      });
     });
   }
 
@@ -92,16 +96,16 @@ export default function Links() {
           ></path>
         </svg>
       </button>
-      <div className="col-span-full lg:col-start-2 grid grid-cols-2 items-center gap-x-8">
+      <div className="col-span-full lg:col-start-2 grid grid-cols-2 lg:grid-cols-4 items-center gap-x-8">
         <button
-          className="inline-flex justify-center items-center space-x-2 mt-4 bg-white hover:bg-slate-900/5 py-4 ring-1 ring-slate-900/5 rounded-md text-slate-500"
+          className="col-span-2 inline-flex justify-center items-center space-x-2 mt-4 bg-white hover:bg-slate-900/5 py-4 ring-1 ring-slate-900/5 rounded-md text-slate-500"
           onClick={handleAddDemo}
         >
           <span>Add demo data</span>
           <Icon icon={"ph:brackets-curly-bold"} width="1em" height="1em" />
         </button>
         <button
-          className="inline-flex justify-center items-center mt-4 bg-gray-800 hover:bg-gray-800/75 py-4 ring-1 ring-slate-900/5 rounded-md text-slate-500"
+          className="col-span-2 inline-flex justify-center items-center mt-4 bg-gray-800 hover:bg-gray-800/75 py-4 ring-1 ring-slate-900/5 rounded-md text-slate-500"
           onClick={handlePublish}
         >
           <span className="text-white font-semibold">Publish</span>

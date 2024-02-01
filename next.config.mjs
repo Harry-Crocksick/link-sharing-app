@@ -12,6 +12,11 @@ const nextConfig = {
         hostname: "i.insider.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "play.tailwindcss.com",
+        port: "",
+      },
     ],
   },
 };

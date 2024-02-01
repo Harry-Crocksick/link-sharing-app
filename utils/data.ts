@@ -1,22 +1,5 @@
 import { ExtraProps, InputProps } from "./definitions";
 
-export const prefillDemoData: InputProps = {
-  name: "John Snow",
-  about: "I'm John Snow, the king in the north. I know Nothing.",
-  url: "https://i.insider.com/56743fad72f2c12a008b6cc0",
-  facebook: "https://www.facebook.com/john_snow",
-  twitter: "https://twitter.com/john_snow",
-  instagram: "https://www.instagram.com/john_snow",
-  email: "mail@john_snow.cc",
-  github: "https://github.com/john_snow",
-  telegram: "https://t.me/john_snow",
-  youtube: "https://youtube.com/@john_snow",
-  linkedin: "https://linkedin.com/john_snow",
-  // pinterest: "https://pinterest.com/john_snow",
-  discord: "https://discord.com/user/john_snow",
-  extra: [],
-};
-
 export const extraDemoLinks: ExtraProps[] = [
   {
     id: 1,
@@ -49,3 +32,20 @@ export const extraDemoLinks: ExtraProps[] = [
     url: "https://google.com",
   },
 ];
+
+export const prefillDemoData: InputProps = {
+  name: "Elon Musk",
+  about: "I'm Elon Musk, CEO of the SpaceX and Tesla. I'm rich!.",
+  url: "https://i.postimg.cc/sgwFCmyY/elonmusk.jpg",
+  facebook: "https://www.facebook.com/elon_musk",
+  twitter: "https://twitter.com/elonmusk",
+  instagram: "https://www.instagram.com/elon_musk",
+  email: "mail@elon_musk.com",
+  github: "https://github.com/elon_musk",
+  telegram: "https://t.me/elon_musk",
+  youtube: "https://youtube.com/@elon_musk",
+  linkedin: "https://linkedin.com/elon_musk",
+  // pinterest: "https://pinterest.com/john_snow",
+  discord: "https://discord.com/user/elon_musk",
+  extra: [...extraDemoLinks],
+};

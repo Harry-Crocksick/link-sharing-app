@@ -1,19 +1,19 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import Link from "./Link";
 import { ReactSortable } from "react-sortablejs";
 import { useExtraLinkContext, useInputsContext } from "@/context/Context";
 import { Icon } from "@iconify/react";
 import { extraDemoLinks, prefillDemoData } from "@/utils/data";
 import { encodeData } from "@/utils/transform";
+import { InputProps } from "@/utils/definitions";
 
 let nextId = 0;
 
 export default function Links() {
-  const router = useRouter();
   const { data, setData } = useExtraLinkContext();
   const { inputs, setInputs } = useInputsContext();
+  const finalizedData: InputProps = { ...inputs, extra: [...data] };
 
   function handleAddDemo() {
     setInputs(prefillDemoData);
@@ -21,8 +21,10 @@ export default function Links() {
   }
 
   function handlePublish() {
-    router.push(`/user/1?data=${encodeData(inputs)}`);
-    const url = `${window.location.origin}/user/1?data=${encodeData(inputs)}`;
+    // router.push(`/user/1?data=${encodeData(inputs)}`);
+    const url = `${window.location.origin}/user/1?data=${encodeData(
+      finalizedData
+    )}`;
     navigator.clipboard.writeText(url).then(() => {
       alert("Link copied to clipboard");
     });

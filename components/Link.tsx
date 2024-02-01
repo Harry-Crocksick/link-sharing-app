@@ -27,8 +27,8 @@ export default function Link({
     );
   }
 
-  function handleDelete(id: number) {
-    setData(data.filter((item) => item.id !== id));
+  function handleDelete() {
+    setData(data.filter((item) => item.id !== link.id));
   }
 
   return (
@@ -42,7 +42,7 @@ export default function Link({
       </button>
       <button
         className="absolute -top-[0.5em] -right-[0.5em] rounded-full p-1 bg-gray-200 max-w-max"
-        onClick={() => handleDelete(link.id)}
+        onClick={handleDelete}
       >
         <Icon icon={"radix-icons:cross-2"} width="1.35em" height="1.35em" />
       </button>

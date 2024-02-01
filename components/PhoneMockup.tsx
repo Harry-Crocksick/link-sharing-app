@@ -16,13 +16,15 @@ export default function PhoneMockup() {
         <div className="mt-12 text-center">
           <Image
             src={`${
-              inputs.url ? inputs.url : "https://i.postimg.cc/ydrdhbXG/chae.jpg"
+              inputs.url
+                ? inputs.url
+                : "https://i.postimg.cc/d32BncbF/placeholder.png"
             }`}
             width={85}
             height={85}
             alt={inputs.name}
             priority
-            className="object-cover w-[85px] h-[85px] rounded-full border-2 border-slate-200 mx-auto"
+            className="object-contain w-[85px] h-[85px] rounded-full border-2 border-slate-200 mx-auto"
           />
           <h1 className="font-semibold text-xl text-black my-2">
             {inputs.name}

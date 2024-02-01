@@ -10,7 +10,7 @@ export default function PhoneMockup() {
   const { data } = useExtraLinkContext();
 
   return (
-    <section className="sticky top-0 max-w-[425px] lg:max-w-[485px] px-4 border-l border-gray-200 w-full h-screen flex justify-center items-center bg-white">
+    <section className="sticky top-0 max-w-[425px] lg:max-w-[485px] px-4 border-l border-gray-200 w-full h-screen hidden lg:flex justify-center items-center bg-white">
       <div className="relative w-[375px] h-[735px] border-[10px] border-black rounded-[55px] overflow-y-scroll px-2 py-4 hide-scrollbar">
         <div className="absolute -top-2 left-1/2 -translate-x-1/2 bg-black w-40 h-8 rounded-b-2xl"></div>
         <div className="mt-12 text-center">

@@ -1,3 +1,8 @@
+export type PageProps = {
+  params: { id: string };
+  searchParams: { [key: string]: string };
+};
+
 export type ExtraLinkContextTypes = {
   data: ExtraProps[];
   setData: (props: ExtraProps[]) => void;

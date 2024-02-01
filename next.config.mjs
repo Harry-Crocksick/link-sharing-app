@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: "i.postimg.cc",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "i.insider.com",
+        port: "",
+      },
     ],
   },
 };

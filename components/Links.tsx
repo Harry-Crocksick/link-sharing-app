@@ -1,13 +1,32 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import Link from "./Link";
 import { ReactSortable } from "react-sortablejs";
-import { useExtraLinkContext } from "@/context/Context";
+import { useExtraLinkContext, useInputsContext } from "@/context/Context";
+import { Icon } from "@iconify/react";
+import { extraDemoLinks, prefillDemoData } from "@/utils/data";
+import { encodeData } from "@/utils/transform";
 
 let nextId = 0;
 
 export default function Links() {
+  const router = useRouter();
   const { data, setData } = useExtraLinkContext();
+  const { inputs, setInputs } = useInputsContext();
+
+  function handleAddDemo() {
+    setInputs(prefillDemoData);
+    setData(extraDemoLinks);
+  }
+
+  function handlePublish() {
+    router.push(`/user/1?data=${encodeData(inputs)}`);
+    const url = `${window.location.origin}/user/1?data=${encodeData(inputs)}`;
+    navigator.clipboard.writeText(url).then(() => {
+      alert("Link copied to clipboard");
+    });
+  }
 
   function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
     setData([
@@ -49,7 +68,9 @@ export default function Links() {
           className="col-span-full lg:col-span-2 flex flex-col space-y-6"
         >
           {data.length > 0 &&
-            data.map((link) => <Link key={link.id} link={link} />)}
+            data.map((link, index) => (
+              <Link key={link.id} index={index} link={link} />
+            ))}
         </ReactSortable>
       )}
       <button
@@ -69,6 +90,21 @@ export default function Links() {
           ></path>
         </svg>
       </button>
+      <div className="col-span-full lg:col-start-2 grid grid-cols-2 items-center gap-x-8">
+        <button
+          className="inline-flex justify-center items-center space-x-2 mt-4 bg-white hover:bg-slate-900/5 py-4 ring-1 ring-slate-900/5 rounded-md text-slate-500"
+          onClick={handleAddDemo}
+        >
+          <span>Add demo data</span>
+          <Icon icon={"ph:brackets-curly-bold"} width="1em" height="1em" />
+        </button>
+        <button
+          className="inline-flex justify-center items-center mt-4 bg-gray-800 hover:bg-gray-800/75 py-4 ring-1 ring-slate-900/5 rounded-md text-slate-500"
+          onClick={handlePublish}
+        >
+          <span className="text-white font-semibold">Publish</span>
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { InputProps } from "./definitions";
+import { ExtraProps, InputProps } from "./definitions";
 
 export const prefillDemoData: InputProps = {
   name: "John Snow",
@@ -13,32 +13,39 @@ export const prefillDemoData: InputProps = {
   youtube: "https://youtube.com/@john_snow",
   linkedin: "https://linkedin.com/john_snow",
   // pinterest: "https://pinterest.com/john_snow",
-  discord: "https://discord.com/user/id",
-  extra: [
-    /* {
-      l: "My Website",
-      i: "ph:globe-duotone",
-      u: "https://example.com",
-    },
-    {
-      l: "Amazon wishlist",
-      i: "ant-design:amazon-outlined",
-      u: "https://amazon.in",
-    },
-    {
-      l: "React JS course",
-      i: "grommet-icons:reactjs",
-      u: "https://reactjs.org/",
-    },
-    {
-      l: "Donate for our cause",
-      i: "iconoir:donate",
-      u: "https://who.int",
-    },
-    {
-      l: "Download my resume",
-      i: "ph:file-pdf",
-      u: "https://google.com",
-    }, */
-  ],
+  discord: "https://discord.com/user/john_snow",
+  extra: [],
 };
+
+export const extraDemoLinks: ExtraProps[] = [
+  {
+    id: 1,
+    label: "My Website",
+    iconKey: "ph:globe-duotone",
+    url: "https://example.com",
+  },
+  {
+    id: 2,
+    label: "Amazon wishlist",
+    iconKey: "ant-design:amazon-outlined",
+    url: "https://amazon.in",
+  },
+  {
+    id: 3,
+    label: "React JS course",
+    iconKey: "grommet-icons:reactjs",
+    url: "https://reactjs.org/",
+  },
+  {
+    id: 4,
+    label: "Donate for our cause",
+    iconKey: "iconoir:donate",
+    url: "https://who.int",
+  },
+  {
+    id: 5,
+    label: "Download my resume",
+    iconKey: "ph:file-pdf",
+    url: "https://google.com",
+  },
+];

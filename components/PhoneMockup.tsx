@@ -15,12 +15,14 @@ export default function PhoneMockup() {
         <div className="absolute -top-2 left-1/2 -translate-x-1/2 bg-black w-40 h-8 rounded-b-2xl"></div>
         <div className="mt-12 text-center">
           <Image
-            src={"https://i.postimg.cc/ydrdhbXG/chae.jpg"}
+            src={`${
+              inputs.url ? inputs.url : "https://i.postimg.cc/ydrdhbXG/chae.jpg"
+            }`}
             width={85}
             height={85}
             alt={inputs.name}
             priority
-            className="object-contain rounded-full border-2 border-slate-200 mx-auto"
+            className="object-cover w-[85px] h-[85px] rounded-full border-2 border-slate-200 mx-auto"
           />
           <h1 className="font-semibold text-xl text-black my-2">
             {inputs.name}
@@ -114,11 +116,13 @@ export default function PhoneMockup() {
                     className="w-full inline-flex items-center space-x-4 p-4 rounded-md bg-slate-50 hover:bg-slate-100"
                     target="_blank"
                   >
-                    <Icon
-                      icon={
-                        list.iconKey ? list.iconKey : "ph:link-simple-duotone"
-                      }
-                    />
+                    <span className="w-5 h-5 inline-flex items-center">
+                      <Icon
+                        icon={
+                          list.iconKey ? list.iconKey : "ph:link-simple-duotone"
+                        }
+                      />
+                    </span>
                     <span>{list.label}</span>
                   </a>
                 )}

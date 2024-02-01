@@ -4,7 +4,13 @@ import { useExtraLinkContext } from "@/context/Context";
 import { ExtraProps } from "@/utils/definitions";
 import { Icon } from "@iconify/react";
 
-export default function Link({ link }: { link: ExtraProps }) {
+export default function Link({
+  link,
+  index,
+}: {
+  link: ExtraProps;
+  index: number;
+}) {
   const { data, setData } = useExtraLinkContext();
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -47,6 +53,7 @@ export default function Link({ link }: { link: ExtraProps }) {
         <input
           type="text"
           name="iconKey"
+          value={data[index].iconKey}
           onChange={handleChange}
           className="w-full border border-gray-300 rounded-md"
         />
@@ -58,6 +65,7 @@ export default function Link({ link }: { link: ExtraProps }) {
         <input
           type="text"
           name="label"
+          value={data[index].label}
           onChange={handleChange}
           className="w-full border border-gray-300 rounded-md"
         />
@@ -69,6 +77,7 @@ export default function Link({ link }: { link: ExtraProps }) {
         <input
           type="url"
           name="url"
+          value={data[index].url}
           onChange={handleChange}
           className="w-full border border-gray-300 rounded-md"
         />

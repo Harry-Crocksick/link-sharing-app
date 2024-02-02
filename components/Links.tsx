@@ -32,6 +32,7 @@ export default function Links() {
         autoClose: 2500,
       });
     });
+    navigator.vibrate(300);
   }
 
   function handleClick(event: React.MouseEvent<HTMLButtonElement>) {

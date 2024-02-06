@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "./Link";
 import { ReactSortable } from "react-sortablejs";
 import { useExtraLinkContext, useInputsContext } from "@/context/Context";
@@ -8,38 +9,44 @@ import { extraDemoLinks, prefillDemoData } from "@/utils/data";
 import { encodeData } from "@/utils/transform";
 import { InputProps } from "@/utils/definitions";
 import { toast } from "react-toastify";
-
-let nextId = 0;
+import { v4 as uuid } from "uuid";
 
 export default function Links() {
   const { data, setData } = useExtraLinkContext();
   const { inputs, setInputs } = useInputsContext();
-  const finalizedData: InputProps = { ...inputs, extra: [...data] };
+  const [finalizedData, setFinalizeData] = useState<InputProps | null>(null);
+  // const finalizedData: InputProps = { ...inputs, extra: [...data] };
+
+  useEffect(() => {
+    setFinalizeData({ ...inputs, extra: [...data] });
+  }, [data, inputs]);
 
   function handleAddDemo() {
     setInputs(prefillDemoData);
     setData(extraDemoLinks);
   }
 
-  function handlePublish() {
+  async function handlePublish() {
     // router.push(`/user/1?data=${encodeData(inputs)}`);
-    const url = `${window.location.origin}/user/1?data=${encodeData(
-      finalizedData
-    )}`;
-    navigator.clipboard.writeText(url).then(() => {
-      toast.success("Link copied to clipboard", {
-        position: "top-center",
-        autoClose: 2500,
+    if (finalizedData) {
+      const url = `${window.location.origin}/user/1?data=${encodeData(
+        finalizedData
+      )}`;
+      navigator.clipboard.writeText(url).then(() => {
+        toast.success("Link copied to clipboard", {
+          position: "top-center",
+          autoClose: 2500,
+        });
       });
-    });
-    navigator.vibrate(300);
+      navigator.vibrate(300);
+    }
   }
 
   function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
     setData([
       ...data,
       {
-        id: nextId++,
+        id: uuid(),
         iconKey: "",
         label: "",
         url: "",

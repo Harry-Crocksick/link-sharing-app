@@ -2,31 +2,31 @@ import { ExtraProps, InputProps } from "./definitions";
 
 export const extraDemoLinks: ExtraProps[] = [
   {
-    id: 0,
+    id: "my-1",
     label: "My Website",
     iconKey: "ph:globe-duotone",
     url: "https://example.com",
   },
   {
-    id: 1,
+    id: "my-2",
     label: "Amazon wishlist",
     iconKey: "ant-design:amazon-outlined",
     url: "https://amazon.in",
   },
   {
-    id: 2,
+    id: "my-3",
     label: "React JS course",
     iconKey: "grommet-icons:reactjs",
     url: "https://reactjs.org/",
   },
   {
-    id: 3,
+    id: "my-4",
     label: "Donate for our cause",
     iconKey: "iconoir:donate",
     url: "https://who.int",
   },
   {
-    id: 4,
+    id: "my-5",
     label: "Download my resume",
     iconKey: "ph:file-pdf",
     url: "https://google.com",

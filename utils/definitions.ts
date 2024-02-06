@@ -9,7 +9,7 @@ export type ExtraLinkContextTypes = {
 };
 
 export type ExtraProps = {
-  id: number;
+  id: string;
   iconKey: string;
   label: string;
   url: string;

@@ -2,20 +2,38 @@
 
 import { useState, useEffect } from "react";
 import Link from "./Link";
-import { ReactSortable } from "react-sortablejs";
 import { useExtraLinkContext, useInputsContext } from "@/context/Context";
 import { Icon } from "@iconify/react";
 import { extraDemoLinks, prefillDemoData } from "@/utils/data";
 import { encodeData } from "@/utils/transform";
-import { InputProps } from "@/utils/definitions";
+import { ExtraProps, InputProps } from "@/utils/definitions";
 import { toast } from "react-toastify";
 import { v4 as uuid } from "uuid";
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
 
 export default function Links() {
   const { data, setData } = useExtraLinkContext();
   const { inputs, setInputs } = useInputsContext();
   const [finalizedData, setFinalizeData] = useState<InputProps | null>(null);
-  // const finalizedData: InputProps = { ...inputs, extra: [...data] };
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
 
   useEffect(() => {
     setFinalizeData({ ...inputs, extra: [...data] });
@@ -27,7 +45,6 @@ export default function Links() {
   }
 
   async function handlePublish() {
-    // router.push(`/user/1?data=${encodeData(inputs)}`);
     if (finalizedData) {
       const url = `${window.location.origin}/user/1?data=${encodeData(
         finalizedData
@@ -74,18 +91,33 @@ export default function Links() {
         </div>
       </div>
       {data.length > 0 && (
-        <ReactSortable
-          ghostClass="blue-background"
-          animation={200}
-          list={data}
-          setList={setData}
-          className="col-span-full lg:col-span-2 flex flex-col space-y-6"
+        <DndContext
+          sensors={sensors}
+          collisionDetection={closestCenter}
+          onDragEnd={(event) => {
+            const { active, over } = event;
+            if (active.id !== over?.id) {
+              setData((data) => {
+                const oldIndex = data.findIndex(
+                  (datum) => datum.id === active.id
+                );
+                const newIndex = data.findIndex(
+                  (datum) => datum.id === over?.id
+                );
+                return arrayMove(data, oldIndex, newIndex);
+              });
+            }
+          }}
         >
-          {data.length > 0 &&
-            data.map((link, index) => (
-              <Link key={link.id} index={index} link={link} />
-            ))}
-        </ReactSortable>
+          <SortableContext items={data} strategy={verticalListSortingStrategy}>
+            <section className="flex flex-col space-y-8 col-span-2">
+              {data.length > 0 &&
+                data.map((link, index) => (
+                  <Link key={link.id} index={index} link={link} />
+                ))}
+            </section>
+          </SortableContext>
+        </DndContext>
       )}
       <button
         className="col-span-full lg:col-start-2 py-1.5 flex items-center justify-center border border-gray-400 rounded-md mt-4"

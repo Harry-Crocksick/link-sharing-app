@@ -44,12 +44,25 @@ export default function Links() {
     setData(extraDemoLinks);
   }
 
-  function handlePublish() {
+  async function handlePublish() {
     if (finalizedData) {
       const url = `${window.location.origin}/user/1?data=${encodeData(
         finalizedData
       )}`;
-      navigator.clipboard.writeText(url).then(() => {
+      const response = await fetch("https://api.short.io/links", {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          authorization: `${process.env.SHORT_LINK_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          domain: "vercel.com",
+          originalUrl: url,
+        }),
+      });
+      const result = await response.json();
+      navigator.clipboard.writeText(result.shortURL).then(() => {
         toast.success("Link copied to clipboard", {
           position: "top-center",
           autoClose: 2500,

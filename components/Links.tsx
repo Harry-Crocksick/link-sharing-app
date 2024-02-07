@@ -49,7 +49,22 @@ export default function Links() {
       const url = `${window.location.origin}/user/1?data=${encodeData(
         finalizedData
       )}`;
-      navigator.clipboard.writeText(url).then(() => {
+      const response = await fetch("https://api-ssl.bitly.com/v4/shorten", {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_BITLY_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          long_url: url,
+          domain: "bit.ly",
+          group_guid: `${process.env.REACT_APP_GUID}`,
+        }),
+      });
+      const result = await response.json();
+      console.log(result);
+      navigator.clipboard.writeText(result.link).then(() => {
         toast.success("Link copied to clipboard", {
           position: "top-center",
           autoClose: 2500,

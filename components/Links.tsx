@@ -53,6 +53,7 @@ export default function Links() {
         method: "POST",
         mode: "cors",
         headers: {
+          "Access-Control-Allow-Headers": "Authorization",
           Authorization: `Bearer ${process.env.REACT_APP_BITLY_TOKEN}`,
           "Content-Type": "application/json",
         },

@@ -15,11 +15,10 @@ export default function PhoneMockup() {
         <div className="absolute -top-2 left-1/2 -translate-x-1/2 bg-black w-40 h-8 rounded-b-2xl"></div>
         <div className="mt-12 text-center">
           <Image
-            src={`${
-              inputs.url
+            src={`${inputs.url
                 ? inputs.url
                 : "https://i.postimg.cc/d32BncbF/placeholder.png"
-            }`}
+              }`}
             width={85}
             height={85}
             alt={inputs.name}
@@ -86,7 +85,7 @@ export default function PhoneMockup() {
               </a>
             )}
             {inputs.email && (
-              <a href={inputs.email} target="_blank">
+              <a href={`mailto:${inputs.email}`} target="_blank">
                 <Icon icon={"mdi:gmail"} width="1.65em" height="1.65em" />
               </a>
             )}

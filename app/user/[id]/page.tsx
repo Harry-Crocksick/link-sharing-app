@@ -54,11 +54,10 @@ export default function Page({ params, searchParams }: PageProps) {
           </div>
           <div className="text-center">
             <Image
-              src={`${
-                inputs.url
+              src={`${inputs.url
                   ? inputs.url
                   : "https://i.postimg.cc/d32BncbF/placeholder.png"
-              }`}
+                }`}
               width={85}
               height={85}
               alt={inputs.name}
@@ -125,7 +124,7 @@ export default function Page({ params, searchParams }: PageProps) {
                 </a>
               )}
               {inputs.email && (
-                <a href={inputs.email} target="_blank">
+                <a href={`mailto:${inputs.email}`} target="_blank">
                   <Icon icon={"mdi:gmail"} width="1.65em" height="1.65em" />
                 </a>
               )}

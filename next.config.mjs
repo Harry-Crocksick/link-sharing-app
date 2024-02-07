@@ -4,18 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "i.postimg.cc",
-        port: "",
-      },
-      {
-        protocol: "https",
-        hostname: "i.insider.com",
-        port: "",
-      },
-      {
-        protocol: "https",
-        hostname: "play.tailwindcss.com",
-        port: "",
+        hostname: "**",
       },
     ],
   },

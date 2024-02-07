@@ -44,28 +44,12 @@ export default function Links() {
     setData(extraDemoLinks);
   }
 
-  async function handlePublish() {
+  function handlePublish() {
     if (finalizedData) {
       const url = `${window.location.origin}/user/1?data=${encodeData(
         finalizedData
       )}`;
-      const response = await fetch("https://api-ssl.bitly.com/v4/shorten", {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Access-Control-Allow-Headers": "Authorization",
-          Authorization: `Bearer ${process.env.REACT_APP_BITLY_TOKEN}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          long_url: url,
-          domain: "bit.ly",
-          group_guid: `${process.env.REACT_APP_GUID}`,
-        }),
-      });
-      const result = await response.json();
-      console.log(result);
-      navigator.clipboard.writeText(result.link).then(() => {
+      navigator.clipboard.writeText(url).then(() => {
         toast.success("Link copied to clipboard", {
           position: "top-center",
           autoClose: 2500,

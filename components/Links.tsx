@@ -111,7 +111,7 @@ export default function Links() {
           }}
         >
           <SortableContext items={data} strategy={verticalListSortingStrategy}>
-            <section className="flex flex-col space-y-8 col-span-2">
+            <section className="flex flex-col space-y-8 col-span-full lg:col-span-2">
               {data.length > 0 &&
                 data.map((link, index) => (
                   <Link key={link.id} index={index} link={link} />

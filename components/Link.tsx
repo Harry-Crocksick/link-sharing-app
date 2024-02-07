@@ -28,6 +28,7 @@ export default function Link({
     transform: CSS.Transform.toString(transform),
     transition,
     backgroundColor: `${isDragging ? "#fafaf9" : "#fff"}`,
+    touchAction: "none",
   };
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {

@@ -53,11 +53,12 @@ export default function Links() {
         method: "POST",
         mode: "cors",
         headers: {
+          "Access-Control-Allow-Origin": "*",
           authorization: `${process.env.SHORT_LINK_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          domain: "vercel.com",
+          domain: "vercel.app",
           originalUrl: url,
         }),
       });

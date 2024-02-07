@@ -97,15 +97,16 @@ export default function Links() {
           onDragEnd={(event) => {
             const { active, over } = event;
             if (active.id !== over?.id) {
-              setData((data) => {
-                const oldIndex = data.findIndex(
-                  (datum) => datum.id === active.id
-                );
-                const newIndex = data.findIndex(
-                  (datum) => datum.id === over?.id
-                );
-                return arrayMove(data, oldIndex, newIndex);
-              });
+              const oldIndex = data.findIndex(
+                (datum) => datum.id === active.id
+              );
+              const newIndex = data.findIndex((datum) => datum.id === over?.id);
+              const sortedArray = arrayMove<ExtraProps>(
+                data,
+                oldIndex,
+                newIndex
+              );
+              setData(sortedArray);
             }
           }}
         >

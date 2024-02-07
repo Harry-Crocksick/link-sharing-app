@@ -14,12 +14,20 @@ export default function Link({
   index: number;
 }) {
   const { data, setData } = useExtraLinkContext();
-  const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id: link.id });
+  const {
+    attributes,
+    isDragging,
+    isOver,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+  } = useSortable({ id: link.id });
 
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
+    backgroundColor: `${isDragging ? "#fafaf9" : "#fff"}`,
   };
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -41,15 +49,19 @@ export default function Link({
   }
 
   return (
-    <div className="relative group">
+    <div className="relative">
       <button
-        className="absolute group-hover:block hidden -top-[0.5em] -right-[0.5em] rounded-full p-1 bg-gray-200 max-w-max z-50"
+        className={`${
+          isDragging ? "opacity-0" : isOver ? "opacity-0" : "opacity-100"
+        } block absolute -top-[0.5em] -right-[0.5em] rounded-full p-1 bg-gray-200 max-w-max z-50`}
         onClick={handleDelete}
       >
         <Icon icon={"radix-icons:cross-2"} width="1.35em" height="1.35em" />
       </button>
       <div
-        className="grid grid-cols-2 gap-x-8 gap-y-6 justify-center bg-white p-6 ring-1 ring-slate-900/5 rounded-md"
+        className={`${
+          isDragging && "z-50"
+        } grid grid-cols-2 gap-x-8 gap-y-6 justify-center bg-white p-6 ring-1 ring-slate-900/5 rounded-md`}
         ref={setNodeRef}
         style={style}
         {...attributes}

@@ -52,6 +52,7 @@ export default function Profile() {
             id="about"
             cols={30}
             rows={3}
+            spellCheck='false'
             placeholder="I am a developer"
             value={inputs.about}
             onChange={handleTextAreaChange}

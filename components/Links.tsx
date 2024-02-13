@@ -121,8 +121,10 @@ export default function Links() {
         </DndContext>
       )}
       <button
+        type="button"
         className="col-span-full lg:col-start-2 py-1.5 flex items-center justify-center border border-gray-400 rounded-md mt-4"
         onClick={handleClick}
+        aria-label="Add more"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -139,6 +141,8 @@ export default function Links() {
       </button>
       <div className="col-span-full lg:col-start-2 grid grid-cols-2 lg:grid-cols-4 items-center gap-x-8">
         <button
+          type="button"
+          aria-label="Add demo data"
           className="col-span-2 inline-flex justify-center items-center space-x-2 mt-4 bg-white hover:bg-slate-900/5 py-4 ring-1 ring-slate-900/5 rounded-md text-slate-500"
           onClick={handleAddDemo}
         >
@@ -146,6 +150,8 @@ export default function Links() {
           <Icon icon={"ph:brackets-curly-bold"} width="1em" height="1em" />
         </button>
         <button
+          type="button"
+          aria-label="Publish"
           className="col-span-2 inline-flex justify-center items-center mt-4 bg-gray-800 hover:bg-gray-800/75 py-4 ring-1 ring-slate-900/5 rounded-md text-slate-500"
           onClick={handlePublish}
         >
